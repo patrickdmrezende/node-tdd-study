@@ -9,3 +9,12 @@ test('should list all users', () => {
       expect(res.body[0]).toHaveProperty('name', 'Mary Jane');
     });
 });
+
+test('should insert user with success', () => {
+  return request(app).post('/user')
+    .send({ name: 'Han Solo', mail: 'hansolo@mail.com' })
+    .then((res) => {
+      expect(res.status).toBe(201);
+      expect(res.body.name).toBe('Han Solo');
+    });
+});
