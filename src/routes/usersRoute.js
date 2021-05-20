@@ -1,11 +1,13 @@
 module.exports = (app) => {
+  const service = app.services.usersService;
+
   const findAll = (req, res) => {
-    app.db('users').select()
+    service.findAll()
       .then((result) => res.status(200).json(result));
   };
 
   const create = async (req, res) => {
-    const result = await app.db('users').insert(req.body, '*');
+    const result = await service.save(req.body);
     res.status(201).json(result[0]);
   };
 
