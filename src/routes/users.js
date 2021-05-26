@@ -1,5 +1,5 @@
 module.exports = (app) => {
-  const service = app.services.usersService;
+  const service = app.services.users;
 
   const findAll = (req, res) => {
     service.findAll()

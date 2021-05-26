@@ -11,8 +11,10 @@ A postgres docker image is used:
 Install PG-admin using Docker:
   - run: `docker run --rm -p 5050:5050 thajeztah/pgadmin4`
   - Now manage your postgres from the browser by launching http://localhost:5050
+  - To create tha database structure run `./node_modules/.bin/knex migrate:latest --env test`
 
 > Instructions to use postgres docker image taken from: https://dev.to/shree_j/how-to-install-and-run-psql-using-docker-41j2
 ## Run App
 `npm i`
+
 `npm run secure-mode` - run app with tests
