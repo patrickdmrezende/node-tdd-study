@@ -17,3 +17,13 @@ test('should insert account with success', () => {
       expect(result.body.name).toBe('Acc #1');
     });
 });
+
+test('should list all accounts', () => {
+  return app.db('accounts')
+    .insert({ name: 'Acc List', user_id: user.id })
+    .then(() => request(app).get(MAIN_ROUTE))
+    .then((res) => {
+      expect(res.status).toBe(200);
+      expect(res.body.length).toBeGreaterThan(0);
+    });
+});
